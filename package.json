@@ -4,7 +4,7 @@
   "description": "Matchmaking server for Jump. Matches players based on skill and friends.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter landing"
+    "test": "mocha --reporter landing test.js"
   },
   "repository": {
     "type": "git",
