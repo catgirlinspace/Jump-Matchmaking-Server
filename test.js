@@ -1,4 +1,4 @@
-const app = require('./app');
+const app = require('./index');
 const server = app.listen();
 const request = require('supertest').agent(server);
 
