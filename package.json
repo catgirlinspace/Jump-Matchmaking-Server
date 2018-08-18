@@ -18,7 +18,7 @@
   "homepage": "https://gitlab.com/Dog2puppy/Jump-Matchmaking-Server#README",
   "dependencies": {
     "koa": "^2.5.2",
-    "koa-better-router": "^2.1.1",
-    "koa-morgan": "^1.0.1"
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^7.4.0"
   }
 }
