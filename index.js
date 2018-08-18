@@ -3,7 +3,7 @@ const Koa = require('koa')
 const morgan = require('koa-morgan')
 
 const accessLogStream = fs.createWriteStream(__dirname + '/access.log', { flags: 'a' })
-const app = new Koa()
+const app = module.exports = new Koa();
 
 app.use(morgan('combined', { stream: accessLogStream }))
 
