@@ -20,5 +20,8 @@
     "koa": "^2.5.2",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }
