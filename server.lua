@@ -1,3 +1,7 @@
+local json = require('json')
+
+local Matches = {}
+
 require("weblit-app")
     .bind({
         host = "0.0.0.0",
@@ -12,7 +16,18 @@ require("weblit-app")
         method = "GET",
         path = "/",
     }, function (req, res, go)
+        res.code = 200
         res.body = "Hello!"
+    end)
+    
+    .route({
+        method = "POST",
+        path = "/matchmaking/findmatch"
+    }, function (req, res, go)
+        local info = json.decode(req.body)
+        if info then
+            -- Player has info
+        end
     end)
     
     .start()
