@@ -28,6 +28,14 @@ require("weblit-app")
         local info = json.decode(req.body)
         if info then
             -- Player has info
+            local BestMatchId = Utils:FindMatch(Matches, info)
+            if BestMatchId ~= nil then
+                res.code = 200
+                res.body = json.encode({ Success = true, Id = BestMatchId })
+            else
+                res.code = 200
+                res.body = json.encode({ Success = false, code = 1 })
+            end
         end
     end)
     
