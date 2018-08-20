@@ -2,6 +2,7 @@ local json = require('json')
 local Utils = require("lib/Utils.lua")
 
 local Matches = {}
+local FriendLobbies = {}
 
 require("weblit-app")
     .bind({
@@ -37,6 +38,13 @@ require("weblit-app")
                 res.body = json.encode({ Success = false, code = 1 })
             end
         end
+    end)
+    
+    .route({
+        method = "POST",
+        path = "/matchmaking/createfriendlobby"
+    }, function (res, req, go)
+        
     end)
     
     .start()
