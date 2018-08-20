@@ -30,7 +30,7 @@ require("weblit-app")
         if info then
             -- Player has info
             local BestMatchId = Utils:FindMatch(Matches, info)
-            if BestMatchId ~= nil then
+            if BestMatchId ~= nil and BestMatchId ~= 1 then
                 res.code = 200
                 res.body = json.encode({ Success = true, Id = BestMatchId })
             else
@@ -43,8 +43,11 @@ require("weblit-app")
     .route({
         method = "POST",
         path = "/matchmaking/createfriendlobby"
-    }, function (res, req, go)
-        
+    }, function (req, res, go)
+        local info = json.decode(req.body)
+        local userId = info.userId
+        local userRank = info.matchmakingLevel
+        FriendLobbies[userId] = { Players = { Id = userId, Rank = userRank } }
     end)
     
     .start()
