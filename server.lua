@@ -47,7 +47,7 @@ require("weblit-app")
         local info = json.decode(req.body)
         local userId = info.userId
         local userRank = info.matchmakingLevel
-        FriendLobbies[userId] = { Players = { Id = userId, Rank = userRank } }
+        FriendLobbies[userId] = { Players = { { Id = userId, Rank = userRank } } }
     end)
     
     .start()
