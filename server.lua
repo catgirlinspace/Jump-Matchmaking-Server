@@ -50,4 +50,12 @@ require("weblit-app")
         FriendLobbies[userId] = { Players = { { Id = userId, Rank = userRank } } }
     end)
     
+    .route({
+        method = "GET",
+        path = "/matchmaking/findfriendlobbies"
+    }, function (req, res, go)
+        local info = json.decode(req.body)
+        local friendsOnline = info.friendsOnline
+    end)
+    
     .start()
