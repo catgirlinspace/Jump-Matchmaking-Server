@@ -55,7 +55,7 @@ function Utils:FindMatch(matches, info)
         else
             local player = { Id = info.userId, Rank = rank }
             local pos = #matches + 1
-            table.insert(matches[bestMatchId], pos, player)
+            table.insert(matches[bestMatchId].Players, pos, player)
             bestMatchId = pos
         end
         return bestMatchId
