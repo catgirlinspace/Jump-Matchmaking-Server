@@ -11,4 +11,4 @@ RUN mv luvit /usr/local/bin
 
 EXPOSE 8888
 
-CMD ["luvit server.lua"]
+CMD luvit server.lua
