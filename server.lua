@@ -56,6 +56,15 @@ require("weblit-app")
     }, function (req, res, go)
         local info = json.decode(req.body)
         local friendsOnline = info.friendsOnline
+        local friendsOnlineLobbies = {}
+        for i, v in ipairs(friendsOnline) do
+            if FriendLobbies[i] then
+                table.insert(friendsOnlineLobbies, FriendLobbies[i])
+        end
+        local resBody = { success = true, FriendsLobbies = friendsOnlineLobbies }
+        res.code = 200
+        res.body = json.encode(resBody)
+        end
     end)
     
     .start()
