@@ -2,7 +2,7 @@ local json = require('json')
 local Utils = require("lib/Utils.lua")
 
 local Matches = {}
-local FriendLobbies = {}
+local FriendLobbies = {} -- Format: { OwnerId = 0, Players = {} }
 
 require("weblit-app")
     .bind({
@@ -65,6 +65,10 @@ require("weblit-app")
         res.code = 200
         res.body = json.encode(resBody)
         end
-    end)
+        end)
+    
+    .route({
+        
+    })
     
     .start()
