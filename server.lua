@@ -3,6 +3,7 @@ local Utils = require("lib/Utils.lua")
 
 local Matches = {}
 local FriendLobbies = {} -- Format: { OwnerId = 0, Players = {} }
+-- Player Format: { Id = info.userId, Rank = rank }
 
 require("weblit-app")
     .bind({
@@ -57,7 +58,7 @@ require("weblit-app")
         local info = json.decode(req.body)
         local friendsOnline = info.friendsOnline
         local friendsOnlineLobbies = {}
-        for i, v in ipairs(friendsOnline) do
+        for i, v in pairs(friendsOnline) do
             if FriendLobbies[i] then
                 table.insert(friendsOnlineLobbies, FriendLobbies[i])
         end
@@ -65,10 +66,22 @@ require("weblit-app")
         res.code = 200
         res.body = json.encode(resBody)
         end
-        end)
+    end)
     
     .route({
-        
-    })
+        method = "POST",
+        path = "/matchmaking/joinfriendlobby"
+    }, function (req, res, go)
+        local info = json.decode(req.body)
+        local friendId = info.friendId
+        local userId = info.userId
+        local userRank = info.userRank
+        if friendLobbies[friendId] do
+            -- Add player to lobby
+        else
+            res.code = 200
+            res.body = json.encode({success = false, msg = "Invalid friend id"})
+        end
+    end)
     
     .start()
