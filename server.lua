@@ -92,7 +92,7 @@ require("weblit-app")
     end)
     
     .route({
-        method = "POST",
+        method = "GET",
         path = "/matchmaking/getfriendlobby"
     }, function (req, res, go)
         
