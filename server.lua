@@ -98,6 +98,8 @@ require("weblit-app")
         local info = json.decode(req.body)
         local friendId = info.friendId
         local r = friendLobbies[friendId] and { success = true, msg = "Friend exists", info = friendLobbies[friendId] } or { success = false, msg = "Friend lobby doesn't exist." }
+        res.code = 200
+        res.body = json.encode(r)
     end)
     
     .start()
