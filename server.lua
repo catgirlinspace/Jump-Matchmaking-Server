@@ -76,8 +76,13 @@ require("weblit-app")
         local friendId = info.friendId
         local userId = info.userId
         local userRank = info.userRank
-        if friendLobbies[friendId] do
+        if friendLobbies[friendId] then
             -- Add player to lobby
+            local player = { Id = userId, Rank = userRank }
+            local pos = #friendLobbies[friendId][Players]
+            table.insert(friendLobbies[friendId].Players, player, pos)
+            res.code = 200
+            res.body = json.encode({success = true, msg = "Player added"})
         else
             res.code = 200
             res.body = json.encode({success = false, msg = "Invalid friend id"})
