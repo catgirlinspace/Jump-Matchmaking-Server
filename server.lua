@@ -49,6 +49,8 @@ require("weblit-app")
         local userId = info.userId
         local userRank = info.matchmakingLevel
         FriendLobbies[userId] = { Players = { { Id = userId, Rank = userRank } } }
+        res.code = 200
+        res.body = json.encode({ success = true, msg = "Lobby made" })
     end)
     
     .route({
@@ -62,7 +64,7 @@ require("weblit-app")
             if FriendLobbies[i] then
                 table.insert(friendsOnlineLobbies, FriendLobbies[i])
         end
-        local resBody = { success = true, FriendsLobbies = friendsOnlineLobbies }
+        local resBody = { success = true, msg = "Friend lobbies found", FriendsLobbies = friendsOnlineLobbies }
         res.code = 200
         res.body = json.encode(resBody)
         end
@@ -87,6 +89,13 @@ require("weblit-app")
             res.code = 200
             res.body = json.encode({success = false, msg = "Invalid friend id"})
         end
+    end)
+    
+    .route({
+        method = "POST",
+        path = "/matchmaking/getfriendlobby"
+    }, function (req, res, go)
+        
     end)
     
     .start()
