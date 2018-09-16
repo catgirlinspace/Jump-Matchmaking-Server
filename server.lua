@@ -31,7 +31,7 @@ require("weblit-app")
         if info then
             -- Player has info
             local BestMatchId = Utils:FindMatch(Matches, info)
-            if BestMatchId ~= nil and BestMatchId ~= 1 then
+            if BestMatchId ~= nil then
                 res.code = 200
                 res.body = json.encode({ Success = true, Id = BestMatchId })
             else
