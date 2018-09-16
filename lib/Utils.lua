@@ -42,7 +42,7 @@ function Utils:FindMatch(matches, info)
         end
         
         if BestMatchId == nil then -- Match not found. Decide to create new lobby or wait. 
-            if #matches >= 5 then -- Create new match
+            if #matches <= 5 then -- Create new match
                 local match = { Players = {}, TeleportCode = nil }
                 local player = { Id = info.userId, Rank = rank }
                 table.insert(match.Players, player)
