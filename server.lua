@@ -1,5 +1,5 @@
 local json = require('json')
-local Utils = require("lib/Utils.lua")
+local Utils = require("lib/Utils")
 
 local Matches = {}
 local FriendLobbies = {} -- Format: { OwnerId = 0, Players = {} }
@@ -20,7 +20,7 @@ require("weblit-app")
         path = "/",
     }, function (req, res, go)
         res.code = 200
-        res.body = "Hello!"
+        res.body = "Hello, world!"
     end)
     
     .route({
