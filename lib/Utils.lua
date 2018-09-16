@@ -61,3 +61,5 @@ function Utils:FindMatch(matches, info)
         return bestMatchId
     end
 end
+
+return Utils
