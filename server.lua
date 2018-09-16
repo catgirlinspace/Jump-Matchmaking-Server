@@ -36,7 +36,7 @@ require("weblit-app")
                 res.body = json.encode({ Success = true, Id = BestMatchId })
             else
                 res.code = 200
-                res.body = json.encode({ Success = false, code = 1 })
+                res.body = json.encode({ Success = false, Code = 1 })
             end
         end
     end)
